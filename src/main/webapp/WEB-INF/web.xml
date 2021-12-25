@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>Asm3</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>ListController</servlet-name>
+		<servlet-class>controller.product.ListController</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SearchController</servlet-name>
+		<servlet-class>controller.SearchController2</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>InformationProductController</servlet-name>
+		<servlet-class>controller.InformationProductController</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>PayController</servlet-name>
+		<servlet-class>controller.PayController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ListController</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>InformationProductController</servlet-name>
+		<url-pattern>/info</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>SearchController</servlet-name>
+		<url-pattern>/search</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+</web-app>

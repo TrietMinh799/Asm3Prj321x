@@ -1,0 +1,50 @@
+{
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\annotations-api.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\catalina.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\catalina-ant.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\catalina-ha.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\catalina-storeconfig.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\catalina-tribes.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\ecj-4.6.3.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\el-api.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\jasper.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\jasper-el.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\jaspic-api.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\jsp-api.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\servlet-api.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-api.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-coyote.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-dbcp.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-i18n-de.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-i18n-es.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-i18n-fr.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-i18n-ja.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-i18n-ko.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-i18n-ru.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-i18n-zh-CN.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-jdbc.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-jni.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-util.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-util-scan.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\tomcat-websocket.jar",
+        "c:\\Users\\TrietMinhNham\\Favorites\\Downloads\\apache-tomcat-8.5.72-windows-x64\\apache-tomcat-8.5.72\\lib\\websocket-api.jar"
+    ],
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "askForPassword": true,
+            "driver": "MySQL",
+            "name": "Tutorial",
+            "database": "MySql",
+            "username": "admin"
+        }
+    ]
+}
