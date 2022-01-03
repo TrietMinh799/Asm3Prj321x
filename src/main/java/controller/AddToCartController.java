@@ -22,7 +22,6 @@ public class AddToCartController extends HttpServlet {
 	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        super.doGet(req, resp);
         resp.setContentType("text/html;charset=UTF-8");
         try {
             HttpSession session = req.getSession(true);
@@ -38,7 +37,13 @@ public class AddToCartController extends HttpServlet {
                 Product p = new ListProductDAO().getProduct("" + id);
                 Cart c = (Cart) session.getAttribute("cart");
                 c.add(new Product(p.getId(), p.getName(), p.getDescription(), p.getPrice(), p.getSrc(), p.getType(), p.getBrand()));
-            }
+            } else if(action != null && action.equalsIgnoreCase("delete")) {
+				int id = Integer.parseInt(idd);
+				Cart c = (Cart) session.getAttribute("cart");
+				c.remove(id);
+			}
+			
+			resp.sendRedirect("cart.jsp");
 
         } catch (Exception e) {
             //TODO: handle exception

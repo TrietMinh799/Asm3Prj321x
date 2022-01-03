@@ -40,6 +40,8 @@ public class PayController extends HttpServlet {
             resp.sendRedirect("/index");;
         } catch (Exception e) {
             //TODO: handle exception
+            resp.getWriter().println(e);
+            e.printStackTrace();
         }
     }
 

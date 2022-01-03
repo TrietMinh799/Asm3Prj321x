@@ -32,10 +32,25 @@
 		<servlet-name>PayController</servlet-name>
 		<servlet-class>controller.PayController</servlet-class>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>AddToCartController</servlet-name>
+		<servlet-class>controller.AddToCartController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddToCartController</servlet-name>
+		<url-pattern>/add</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>ListController</servlet-name>
 		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>PayController</servlet-name>
+		<url-pattern>/pay</url-pattern>
 	</servlet-mapping>
 	
 	<servlet-mapping>
