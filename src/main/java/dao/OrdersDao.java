@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Date;
 
 import context.DBContext;
 import model.Cart;
@@ -14,80 +13,59 @@ import model.Product;
 
 public class OrdersDao {
 
-    // insert information of Order to data source, that including list of
-    // products in cart (c) and information of buyer in Orders o
-    public int insertOrder(Orders o, Cart c) throws Exception {
-        DBContext context = new DBContext();
-        Connection connection = context.getConnection();
+	// insert information of Order to data source, that including list of
+	// products in cart (c) and information of buyer in Orders o
+	public int insertOrder(Orders o, Cart c) throws Exception {
+		DBContext db = new DBContext();
+		Connection connection = db.getConnection();
+		PreparedStatement pStatment;
+		String sql = "";
+		int status = 0;
 
-        int status = 0;
-        String sql = "insert into Orders(user_mail, order_status, order_date, order_discount_code, order_address) values ("
-                + "?, ?, ?, ?, ?)";
+		try {
+			sql = "insert into Orders(user_mail, order_status, order_date, order_discount_code, order_address) values ("
+					+ "?, ?, ?, ?, ?)";
+			pStatment = connection.prepareStatement(sql);
+			pStatment.setString(1, o.getUserMail());
+			pStatment.setInt(2, 2);
+			pStatment.setTimestamp(3, new java.sql.Timestamp(new java.util.Date().getTime()));
+			pStatment.setString(4, o.getDiscount());
+			pStatment.setString(5, o.getAddress());
 
-        int count = 0;
+			status = pStatment.executeUpdate();
 
-        PreparedStatement pStatement = null;
-        try {
-            pStatement = connection.prepareStatement(sql);
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		status = 0;
+		connection = db.getConnection();
 
-            ResultSet rSet = pStatement.executeQuery();
+		sql = "select count (*) from Orders";
+		Statement stmt = connection.createStatement();
+		ResultSet rSet = stmt.executeQuery(sql);
+		rSet.next();
+		int count = rSet.getInt(1);
+		o.setOrderId(count);
 
-            rSet.next();
-            count = rSet.getInt(1);
+		try {
+			for (int i = 0; i < c.getItems().size(); i++) {
+				Product p = c.getItems().get(i);
 
-        } catch (SQLException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
+				sql = "insert into Orders_detail(order_id, product_id, amount_product, price_product) values ("
+						+ "?,?,?,?)";
+				pStatment = connection.prepareStatement(sql);
+				pStatment.setInt(1, o.getOrderId());
+				pStatment.setInt(2, p.getId());
+				pStatment.setInt(3, p.getNumber());
+				pStatment.setFloat(4, p.getPrice());
 
-        o.setOrderId(count);
-
-        try {
-            pStatement.setString(1, o.getUserMail());
-            pStatement.setInt(2, 2);
-            pStatement.setDate(3, new Date(15));
-            pStatement.setString(4, o.getDiscount());
-            pStatement.setString(5, o.getAddress());
-
-            status = pStatement.executeUpdate();
-
-            connection.close();
-
-        } catch (Exception e) {
-
-            e.printStackTrace();
-        }
-
-        status = 0;
-        connection = context.getConnection();
-
-        sql = "select count (*) from Orders";
-        Statement statement = connection.createStatement();
-
-        ResultSet set = statement.executeQuery(sql);
-
-        set.next();
-        try {
-            for (int i = 0; i < c.getItems().size(); i++) {
-                Product product = c.getItems().get(i);
-
-                sql = "insert into Orders_detail(order_id, product_id, amount_product, price_product) values ("
-                        + "?, ?, ?, ?)";
-
-                pStatement = connection.prepareStatement(sql);
-                pStatement.setInt(1, o.getOrderId());
-                pStatement.setInt(2, product.getId());
-                pStatement.setInt(3, product.getNumber());
-                pStatement.setFloat(4, product.getPrice());
-
-                status = pStatement.executeUpdate();
-            }
-
-            connection.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return status;
-    }
+				status = pStatment.executeUpdate();
+			}
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
 }

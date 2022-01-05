@@ -23,18 +23,19 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
       </p>
       <hr />
       <div>
-        <form action="pay" method="get" >
+        <form action="add" method="get" >
           <img
             alt="${product.description}"
             width="350"
             height="350"
             src="${product.src}"
           />
+          <input name="id" value="${product.id}" type="hidden">
           <c:set var="type" value="${product.type}"></c:set>
           <input class="card-title text-secondary" type="hidden" value="${fn:toUpperCase(type)}" />
-          <input type="hidden" value="${product.name}" name="id" class="card-text text-success">
+          <input type="hidden" value="${product.name}" class="card-text text-success">
           <p class="card-text text-danger">${product.price}</p>
-          <button type="submit">Add To Cart</button>
+          <input type="submit" name="action" value="Add"/>
         </form>
       </div>
     </div>

@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,6 @@ public class PayController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO Auto-generated method stub
         resp.setContentType("text/html;charset=UTF-8");
-        req.setCharacterEncoding("utf-8");
         try {
             HttpSession session = req.getSession(true);
 
@@ -37,7 +37,7 @@ public class PayController extends HttpServlet {
             String address = req.getParameter("address");
             Orders d = new Orders(username, 2, discount, address, "", null);
             dao.insertOrder(d, cart);
-            resp.sendRedirect("/index");;
+            resp.sendRedirect("index");
         } catch (Exception e) {
             //TODO: handle exception
             resp.getWriter().println(e);
@@ -48,7 +48,7 @@ public class PayController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // TODO Auto-generated method stub
-        super.doPost(req, resp);
+        doGet(req, resp);
     }
     
 }

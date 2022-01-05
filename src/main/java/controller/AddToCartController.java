@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +28,7 @@ public class AddToCartController extends HttpServlet {
             HttpSession session = req.getSession(true);
             String idd = req.getParameter("id");
             String action = req.getParameter("action");
-
+            
             if(action != null && action.equalsIgnoreCase("add")) {
                 if(session.getAttribute("cart") == null) {
                     session.setAttribute("cart", new Cart());
@@ -36,14 +37,16 @@ public class AddToCartController extends HttpServlet {
                 int id = Integer.parseInt(idd);
                 Product p = new ListProductDAO().getProduct("" + id);
                 Cart c = (Cart) session.getAttribute("cart");
-                c.add(new Product(p.getId(), p.getName(), p.getDescription(), p.getPrice(), p.getSrc(), p.getType(), p.getBrand()));
+                c.add(p);
+                
             } else if(action != null && action.equalsIgnoreCase("delete")) {
 				int id = Integer.parseInt(idd);
 				Cart c = (Cart) session.getAttribute("cart");
 				c.remove(id);
 			}
 			
-			resp.sendRedirect("cart.jsp");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("cart.jsp");
+			dispatcher.forward(req, resp);
 
         } catch (Exception e) {
             //TODO: handle exception
