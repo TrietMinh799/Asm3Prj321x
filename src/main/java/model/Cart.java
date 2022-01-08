@@ -35,7 +35,7 @@ public class Cart {
             s += product.getPrice() * product.getNumber();
         }
 
-        return Math.round(s * 100.0) / 100.0;
+        return s;
     }
 
     public List<Product> getItems() {

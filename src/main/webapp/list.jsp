@@ -25,6 +25,9 @@
 	<div class="container mt-2 mb-2">
 		<c:import url="search.jsp"></c:import>
 		<div class="row">
+			<c:if test="${list.size() == 0}">
+				<p>No products to be found, try to search with another keywords.</p>
+			</c:if>
 			<c:forEach items="${ list }" var="item">
 				<div class="card-deck col-md-4">
 					<a

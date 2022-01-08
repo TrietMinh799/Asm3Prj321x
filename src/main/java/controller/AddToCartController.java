@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,9 +43,8 @@ public class AddToCartController extends HttpServlet {
 				Cart c = (Cart) session.getAttribute("cart");
 				c.remove(id);
 			}
-			
-			RequestDispatcher dispatcher = req.getRequestDispatcher("cart.jsp");
-			dispatcher.forward(req, resp);
+		
+            resp.sendRedirect("cart.jsp");
 
         } catch (Exception e) {
             //TODO: handle exception
